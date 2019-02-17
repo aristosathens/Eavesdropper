@@ -1,0 +1,15 @@
+{
+  "name": "js-matrix-core-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "matrix-protos": "0.0.26",
+    "zeromq": "^5.1.0"
+  }
+}
