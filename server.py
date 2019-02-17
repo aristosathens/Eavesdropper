@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
 def home():
-    return render_template('index.html', message="This is a walkie talkie.")
+    return render_template('index.html', message="This is a walkie talkie.", audio=False, afile='safety.wav')
 
 @app.route('/', methods=["POST"])
 def buttons():
@@ -13,12 +13,15 @@ def buttons():
     if 'Spy Button' in request.form:
         record_LED()
         make_recording()
-        return render_template('audio.html', audio_file="recording.wav")
+        return render_template('index.html', message="How Dare You!", 
+                audio=True, afile='recording.wav')
         #print("In spy")
     elif 'Safety Button' in request.form:
-        play_recording()
-        #print("In safety")
-        return render_template('index.html', message="Success!")
+        #return sound("safety.wav")
+        #return render_template("audio.html", audio_file="safety.wav")
+        # play_recording()
+        print("In safety")
+        return render_template('index.html', message="We're Glad You're Safe!", audio=True, afile='safety.wav')
 
 
 @app.route('/green', methods=["GET"])
@@ -36,6 +39,7 @@ def button_press():
 @app.route('/safety')
 def safety_page():
     return render_template('safety.html')
+
 
 @app.route('/sound/<file_name>')
 def sound(file_name):

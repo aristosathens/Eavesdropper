@@ -16,8 +16,16 @@
 		<link rel="stylesheet" href="../static/css/main.css">
 		<link rel="stylesheet" href="../static/css/responsive.css">
 		<link rel="stylesheet" href="../static/css/animate.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 	</head>
+	{% if audio == True }
+	<audio controls="controls" autoplay="autoplay"> 
+		<source src="sound/safety.wav">
+	</audio>
+	{% endif %}
 	<body>
+
 		<!-- header section -->
 		<section class="banner" role="banner">
 			<header id="header">
@@ -45,6 +53,14 @@
 				</div>
 			</div>
 		</section>
+		<div id="controls">
+			<button id="recordButton">Record</button>
+			<button id="pauseButton" disabled>Pause</button>
+			<button id="stopButton" disabled>Stop</button>
+		</div>
+		<div id="formats">Format: start recording to see sample rate</div>
+		<h3>Recordings</h3>
+		<ol id="recordingsList"></ol>
 		<!-- header section --> 
 
 		<!-- JS FILES --> 
@@ -55,10 +71,7 @@
 		<script src="../static/js/retina.min.js"></script> 
 		<script src="../static/js/modernizr.js"></script> 
 		<script src="../static/js/main.js"></script>
+		<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+		<script src="../static/js/app.js"></script>
 	</body>
-	{% if audio == True %}
-	<audio controls="controls" autoplay="autoplay"> 
-		<source src="sound/{{afile}}">
-	</audio>
-	{% endif %}
 	</html>
